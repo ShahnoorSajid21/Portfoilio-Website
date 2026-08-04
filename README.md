@@ -1,8 +1,8 @@
 # Muhammad Shahnoor Sajid — Portfolio
 
-Personal portfolio site for Muhammad Shahnoor Sajid, a product engineer working on ML and agentic
-systems for financial products. Built as a single-page React application with hash-based routing,
-covering an about section, selected projects with dedicated case-study pages, work experience,
+This is my personal portfolio site. I'm a product engineer working on ML and agentic systems for
+financial products, and I built this as a single-page React application with hash-based routing. It
+covers an about section, my selected projects with dedicated case-study pages, work experience,
 education, skills and a contact section.
 
 **Live sections:** About · Projects · Experience · Education · Skills · Community · Contact
@@ -11,16 +11,17 @@ education, skills and a contact section.
 
 ## Tech stack
 
-| Layer      | Choice                          |
+| Layer      | What I used                     |
 |------------|----------------------------------|
 | Framework  | React 18                        |
 | Build tool | Vite 5                          |
-| Routing    | Custom hash-based router (`useHashRoute`) — no external router dependency |
+| Routing    | A custom hash-based router (`useHashRoute`) — no external router dependency |
 | Styling    | Plain CSS (`src/styles/site.css`), CSS custom properties for theming |
 | Fonts      | OffBit (display) via cdnfonts, Switzer (body) via Fontshare |
 
-No UI framework or CSS-in-JS library is used — styling is a single hand-written stylesheet driven
-by CSS variables, and animations use `IntersectionObserver` (`useReveal`) for scroll-triggered reveals.
+I deliberately skipped UI frameworks and CSS-in-JS libraries — the styling is a single hand-written
+stylesheet driven by CSS variables, and the scroll-triggered reveals run on `IntersectionObserver`
+through my `useReveal` hook.
 
 ---
 
@@ -32,7 +33,7 @@ portfolio/
 ├── package.json
 ├── vite.config.js            # Vite + @vitejs/plugin-react config
 ├── public/
-│   ├── resume.pdf            # Downloadable CV
+│   ├── resume.pdf            # My downloadable CV
 │   └── assets/               # Images referenced via assetUrl()
 │       └── community/        # Community/event photos
 └── src/
@@ -63,9 +64,9 @@ portfolio/
         └── site.css            # Entire site's styling
 ```
 
-All copy (project descriptions, tech stacks, experience, education, skills, community captions) lives
-in one place: [`src/data/content.js`](src/data/content.js). Update that file to change site content
-without touching any component.
+I keep all copy — project descriptions, tech stacks, experience, education, skills, community
+captions — in one place: [`src/data/content.js`](src/data/content.js). Editing that file changes the
+site content without touching any component.
 
 ---
 
@@ -85,15 +86,16 @@ The dev server starts at `http://localhost:5173`.
 | Command           | Description                                  |
 |--------------------|-----------------------------------------------|
 | `npm run dev`       | Start the Vite dev server with hot reload     |
-| `npm run build`     | Type-free production build, output to `dist/` |
+| `npm run build`     | Production build (no type-checking step), output to `dist/` |
 | `npm run preview`   | Serve the production build locally to sanity-check it |
 
 ---
 
 ## Adding a project
 
-Every project follows the same standardized structure — a short card summary, an overview, a list of
-capabilities, and a grouped tech stack. Add an entry to the `PROJECTS` array in `src/data/content.js`:
+Every project I add follows the same structure — a short card summary, an overview, a list of
+capabilities, and a grouped tech stack. I add an entry to the `PROJECTS` array in
+`src/data/content.js`:
 
 ```js
 {
@@ -114,23 +116,25 @@ capabilities, and a grouped tech stack. Add an entry to the `PROJECTS` array in 
 }
 ```
 
-Then register it in the grid by adding its `id` to the `CELLS` array in
-[`src/components/ProjectsGrid.jsx`](src/components/ProjectsGrid.jsx), with a CSS grid-cell class
-defined in `site.css`. Clicking a project card opens `#/p/<id>`, rendered by
-[`src/pages/ProjectDetail.jsx`](src/pages/ProjectDetail.jsx) as three sections: Project Overview, Core
-Capabilities & Features, and Technical Highlights & Stack.
+Then I register it in the grid by adding its `id` to the `CELLS` array in
+[`src/components/ProjectsGrid.jsx`](src/components/ProjectsGrid.jsx), with a matching CSS grid-cell
+class in `site.css`. Clicking a project card opens `#/p/<id>`, which
+[`src/pages/ProjectDetail.jsx`](src/pages/ProjectDetail.jsx) renders as three sections: Project
+Overview, Core Capabilities & Features, and Technical Highlights & Stack.
 
 ---
 
 ## Deployment
 
-This is a static site — `npm run build` outputs a deployable `dist/` folder. It works out of the box
-on any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages, etc.) with no server-side
+It's a static site — `npm run build` outputs a deployable `dist/` folder. It works out of the box on
+any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages, etc.) with no server-side
 requirements.
 
 ---
 
 ## Contact
+
+Feel free to reach out:
 
 - Email: shahnoorsajid21@gmail.com
 - LinkedIn: [Muhammad Shahnoor Sajid](https://www.linkedin.com/in/muhammad-shahnoor-sajid)
