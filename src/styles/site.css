@@ -407,7 +407,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .hero-frame {
   position: relative;
   width: 100%;
-  min-width: 420px;
+  /* Never let the frame set a floor wider than its grid column — an
+     unconditional min-width here forced the whole hero (and the page) past
+     the viewport on phones, which in turn widened the containing block for
+     the fixed header and mobile menu. */
+  min-width: 0;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   max-height: 52svh;
   overflow: hidden;
@@ -419,6 +424,9 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   transition: border-color .25s ease;
 }
 @media (min-width: 900px) { .hero-frame { max-height: 46svh; } }
+/* Only from 1024px up is a 420px column guaranteed to fit inside the
+   two-column hero without overflowing. */
+@media (min-width: 1024px) { .hero-frame { min-width: 420px; } }
 .hero-frame:hover { border-color: var(--strong); }
 .hero-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
 
