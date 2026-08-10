@@ -32,7 +32,6 @@ export default function Header({ menuOpen, onToggleMenu, onCloseMenu, goHome }) 
         </nav>
 
         <span className="header-spacer" />
-        <span className="header-status">Available for roles — Jun 2027</span>
         <a
           href="resume.pdf"
           download="Muhammad-Shahnoor-Sajid-CV.pdf"

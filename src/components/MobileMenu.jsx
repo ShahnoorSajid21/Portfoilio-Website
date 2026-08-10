@@ -15,7 +15,7 @@ export default function MobileMenu({ open, onCloseMenu }) {
         Email me
       </a>
       <p className="mobile-note">
-        Islamabad, Pakistan.<br />Available for roles from June 2027.
+        Islamabad, Pakistan.
       </p>
     </div>
   );
